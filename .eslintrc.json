@@ -1,0 +1,44 @@
+{
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "ignorePatterns": ["temp.js", "**/vendor/*.js"],
+  "rules": {
+    "react/display-name": "off",
+    "react/no-unescaped-entities": "warn",
+    "import/no-anonymous-default-export": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-explicit-any": "error",
+    "check-file/folder-naming-convention": [
+      "error",
+      {
+        "src/**/": "KEBAB_CASE"
+      }
+    ],
+    "check-file/filename-naming-convention": [
+      "error",
+      {
+        "src/**/*.{js,ts,jsx,tsx,}": "KEBAB_CASE"
+      }
+    ]
+  },
+
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["import", "@typescript-eslint", "check-file"],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": ["./tsconfig.json"]
+      }
+    }
+  }
+}
